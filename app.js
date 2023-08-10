@@ -28,6 +28,12 @@ app.get('/', (req, res) => {
     .catch((err) => res.status(500).json("Error: " + err));
 });
 
+app.get('/:id', (req, res) => {
+  Book.findById(req.params.id)
+    .then((record) => res.json(record))
+    .catch((err) => res.status(500).json("Error: " + err));
+});
+
 app.get('/search/:title', (req, res) => {
   const filter = { "title": req.params.title };
   Book.find(filter)
