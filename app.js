@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
 let Book = require("./models/bookmodel");
+const cors = require('cors');
 (express = require('express')), (app = express());
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({
   extended: true,
+}));
+
+app.use(cors({
+  origin: '*'
 }));
 app.use(bodyParser.json())
 
